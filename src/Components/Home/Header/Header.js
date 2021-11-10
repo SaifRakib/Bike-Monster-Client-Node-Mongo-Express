@@ -33,8 +33,8 @@ const Header = () => {
                 </Link>
               </li>
               <li class="nav-item">
-                <Link class="nav-link active" aria-current="page" to="/">
-                  About Us
+                <Link class="nav-link active" aria-current="page" to="/explore">
+                  Explore
                 </Link>
               </li>
               <li class="nav-item">
