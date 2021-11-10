@@ -1,0 +1,10 @@
+.service .card img {
+  height: 250px;
+}
+.services-info {
+  display: flex;
+  justify-content: space-between;
+}
+.services-info i {
+  margin-right: 10px;
+}

@@ -38,8 +38,12 @@ const Header = () => {
                 </Link>
               </li>
               <li class="nav-item">
-                <Link class="nav-link active" aria-current="page" to="/">
-                  Contact Us
+                <Link
+                  class="nav-link active"
+                  aria-current="page"
+                  to="/dashboard"
+                >
+                  Dashboard
                 </Link>
               </li>
             </ul>

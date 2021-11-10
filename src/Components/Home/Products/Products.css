@@ -1,0 +1,19 @@
+.card-deck {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+}
+
+/* Small devices  */
+@media (max-width: 668px) {
+  .card-deck {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Midium device */
+@media (min-width: 669px) and (max-width: 992px) {
+  .card-deck {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
