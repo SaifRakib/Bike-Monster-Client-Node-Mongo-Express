@@ -25,7 +25,7 @@ function App() {
           <Route path="/explore">
             <AllProducts></AllProducts>
           </Route>
-          <Route path="/purchase/:id">
+          <Route path="/purchase/:productId">
             <Purchase></Purchase>
           </Route>
           <Route path="/login">
