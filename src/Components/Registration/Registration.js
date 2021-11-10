@@ -1,54 +1,99 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useHistory } from "react-router-dom";
+import useAuth from "../../Hooks/useAuth";
 
 const Registration = () => {
+  const [loginData, setLoginData] = useState({});
+  const history = useHistory();
+  const { user, registerUser, isLoading, authError } = useAuth();
+
+  const handleOnBlur = (e) => {
+    const field = e.target.name;
+    const value = e.target.value;
+    const newLoginData = { ...loginData };
+    newLoginData[field] = value;
+    setLoginData(newLoginData);
+  };
+  const handleRegisterSubmit = (e) => {
+    if (loginData.password !== loginData.password2) {
+      alert("Your password did not match");
+      return;
+    }
+    registerUser(loginData.email, loginData.password, loginData.name, history);
+    e.preventDefault();
+  };
   return (
     <div className="container">
       <h2>Registration</h2>
 
-      <form action="">
-        <div className="form-group">
-          <label for="name">Name</label>
-          <input
-            type="text"
-            className="form-control"
-            id="name"
-            placeholder="Enter Your Name"
-          />
-        </div>
-        <div className="form-group">
-          <label for="email">Email</label>
-          <input
-            type="email"
-            className="form-control"
-            id="email"
-            placeholder="Enter Your Email"
-          />
-        </div>
-        <div className="form-group">
-          <label for="password">Password</label>
-          <input
-            type="password"
-            className="form-control"
-            id="password"
-            placeholder="Enter Your Password"
-          />
-        </div>
-        <div className="form-group">
-          <label for="password2">Password</label>
-          <input
-            type="password"
-            className="form-control"
-            id="password2"
-            placeholder="Re-Enter Your Password"
-          />
-        </div>
-        <div className="submit">
-          <button type="submit" className="btn btn-primary">
-            Register
-          </button>
-        </div>
-      </form>
+      {!isLoading && (
+        <form onSubmit={handleRegisterSubmit}>
+          <div className="form-group">
+            <label for="name">Name</label>
+            <input
+              type="text"
+              onBlur={handleOnBlur}
+              className="form-control"
+              id="name"
+              name="name"
+              placeholder="Enter Your Name"
+            />
+          </div>
+          <div className="form-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              onBlur={handleOnBlur}
+              className="form-control"
+              id="email"
+              name="email"
+              placeholder="Enter Your Email"
+            />
+          </div>
+          <div className="form-group">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              onBlur={handleOnBlur}
+              className="form-control"
+              id="password"
+              name="password"
+              placeholder="Enter Your Password"
+            />
+          </div>
+          <div className="form-group">
+            <label for="password2">Password</label>
+            <input
+              type="password"
+              onBlur={handleOnBlur}
+              className="form-control"
+              id="password2"
+              name="password2"
+              placeholder="Re-Enter Your Password"
+            />
+          </div>
+          <div className="submit">
+            <button type="submit" className="btn btn-primary">
+              Register
+            </button>
+          </div>
+          {isLoading && (
+            <div class="spinner-border" role="status">
+              <span class="sr-only">Loading...</span>
+            </div>
+          )}
+          {user?.email && (
+            <div class="alert alert-success" role="alert">
+              Login Succesfully!
+            </div>
+          )}
+          {authError && (
+            <div class="alert alert-danger" role="alert">
+              {authError}
+            </div>
+          )}
+        </form>
+      )}
       <p>
         Already have account? <Link to="/login">Sign In</Link>
       </p>

@@ -5,12 +5,14 @@ import Dashboard from "./Components/Dashboard/Dashboard";
 import Header from "./Components/Home/Header/Header";
 import Home from "./Components/Home/Home";
 import Login from "./Components/Login/Login";
+import PrivateRoute from "./Components/Login/PrivateRoute";
 import Purchase from "./Components/Purchase/Purchase";
 import Registration from "./Components/Registration/Registration";
+import AuthProvider from "./Context/AuthProvider";
 
 function App() {
   return (
-    <div className="App">
+    <AuthProvider>
       <Router>
         <Header></Header>
         <Switch>
@@ -34,7 +36,7 @@ function App() {
           </Route>
         </Switch>
       </Router>
-    </div>
+    </AuthProvider>
   );
 }
 
