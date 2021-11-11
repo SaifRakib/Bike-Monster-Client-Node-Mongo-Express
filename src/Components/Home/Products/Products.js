@@ -21,9 +21,11 @@ const Products = () => {
           </div>
         ) : (
           <div className="card-deck my-5">
-            {products.map((product) => (
-              <Product key={product._id} product={product}></Product>
-            ))}
+            {products
+              .map((product) => (
+                <Product key={product._id} product={product}></Product>
+              ))
+              .slice(0, 6)}
           </div>
         )}
       </div>

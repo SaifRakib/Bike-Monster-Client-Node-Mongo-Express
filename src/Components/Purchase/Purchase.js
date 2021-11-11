@@ -22,6 +22,17 @@ const Purchase = () => {
   }, []);
 
   const onSubmit = (data) => {
+    let today = new Date();
+    let dd = String(today.getDate()).padStart(2, "0");
+    let mm = String(today.getMonth() + 1).padStart(2, "0");
+    let yyyy = today.getFullYear();
+
+    today = mm + "/" + dd + "/" + yyyy;
+    data.date = today;
+
+    const status = "Pending";
+    data.status = status;
+
     axios.post("http://localhost:8080/order", data).then((res) => {
       if (res.data.insertedId) {
         alert("Your Order Process.Thank You.");
@@ -83,7 +94,7 @@ const Purchase = () => {
                     />{" "}
                     <br />
                     <input
-                      {...register("item", { required: true, disabled: true })}
+                      {...register("item", { required: true })}
                       placeholder="Selected Product"
                       defaultValue={product.name}
                       className="mb-2 p-2"
