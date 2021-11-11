@@ -3,7 +3,7 @@ import AddProduct from "./AddProduct/AddProduct";
 import "./Dashboard.css";
 import MakeAdmin from "./MakeAdmin/MakeAdmin";
 import ManageAllOrders from "./ManageAllOrders/ManageAllOrders";
-import ManageOrders from "./ManageOrders/ManageOrders";
+import ManageProducts from "./ManageProdcts/ManageProducts";
 
 const Dashboard = () => {
   const [control, setControl] = useState("allVolunteers");
@@ -24,10 +24,10 @@ const Dashboard = () => {
                       Add Product
                     </li>
                     <li
-                      onClick={() => setControl("manageOrders")}
+                      onClick={() => setControl("manageProducts")}
                       className="admin-menu p-2"
                     >
-                      Manage Orders
+                      Manage Products
                     </li>
                     <li
                       onClick={() => setControl("makeAdmin")}
@@ -46,7 +46,9 @@ const Dashboard = () => {
               </div>
               <div className="col-md-10 text-center  text-center">
                 {control === "addProduct" && <AddProduct></AddProduct>}
-                {control === "manageOrders" && <ManageOrders></ManageOrders>}
+                {control === "manageProducts" && (
+                  <ManageProducts></ManageProducts>
+                )}
                 {control === "makeAdmin" && <MakeAdmin></MakeAdmin>}
                 {control === "manageAllOrders" && (
                   <ManageAllOrders></ManageAllOrders>
