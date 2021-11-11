@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import useAuth from "../../Hooks/useAuth";
 import AddProduct from "./AddProduct/AddProduct";
 import "./Dashboard.css";
 import MakeAdmin from "./MakeAdmin/MakeAdmin";
@@ -10,6 +11,7 @@ import Review from "./Review/Review";
 
 const Dashboard = () => {
   const [control, setControl] = useState("allVolunteers");
+  const { admin } = useAuth();
   return (
     <div>
       <div className="admin-container">
@@ -39,30 +41,34 @@ const Dashboard = () => {
                       Review
                     </li>
 
-                    <li
-                      onClick={() => setControl("addProduct")}
-                      className="admin-menu p-2"
-                    >
-                      Add Product
-                    </li>
-                    <li
-                      onClick={() => setControl("manageProducts")}
-                      className="admin-menu p-2"
-                    >
-                      Manage Products
-                    </li>
-                    <li
-                      onClick={() => setControl("makeAdmin")}
-                      className="admin-menu p-2"
-                    >
-                      Make Admin
-                    </li>
-                    <li
-                      onClick={() => setControl("manageAllOrders")}
-                      className="admin-menu p-2"
-                    >
-                      Manage All Orders
-                    </li>
+                    {admin && (
+                      <div>
+                        <li
+                          onClick={() => setControl("addProduct")}
+                          className="admin-menu p-2"
+                        >
+                          Add Product
+                        </li>
+                        <li
+                          onClick={() => setControl("manageProducts")}
+                          className="admin-menu p-2"
+                        >
+                          Manage Products
+                        </li>
+                        <li
+                          onClick={() => setControl("makeAdmin")}
+                          className="admin-menu p-2"
+                        >
+                          Make Admin
+                        </li>
+                        <li
+                          onClick={() => setControl("manageAllOrders")}
+                          className="admin-menu p-2"
+                        >
+                          Manage All Orders
+                        </li>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>

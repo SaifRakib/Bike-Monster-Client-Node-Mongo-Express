@@ -107,8 +107,9 @@ const useFirebase = () => {
     return () => unsubscribe;
   }, [auth]);
 
+  // check admin
   useEffect(() => {
-    fetch(`http://localhost:8080/${user.email}`)
+    fetch(`http://localhost:8080/users/${user.email}`)
       .then((res) => res.json())
       .then((data) => setAdmin(data.admin));
   }, [user.email]);
