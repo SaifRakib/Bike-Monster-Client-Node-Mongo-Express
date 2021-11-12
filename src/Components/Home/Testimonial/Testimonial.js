@@ -12,18 +12,21 @@ const Testimonial = () => {
 
   return (
     <div>
-      <div class=" bg-dark text-light">
-        <div class="container text-center p-4 col-md-10 offset-md-1 pt-5 pb-5">
+      <div className=" bg-dark text-light">
+        <div className="container text-center p-4 col-md-10 offset-md-1 pt-5 pb-5">
+          <h2 className="pb-5">Our Happy Customer</h2>
           {reviews.map((review) => (
             <div className="testimonial">
-              <blockquote class="blockquote text-center">
-                <p class="mb-0">
-                  <i class="fa fa-quote-left"></i> {review.opinion}
-                  <i class="fa fa-quote-right"></i>
+              <blockquote className="blockquote text-center">
+                <p className="mb-0">
+                  <i className="fa fa-quote-left"></i> {review.opinion}
+                  <i className="fa fa-quote-right"></i>
                 </p>
-                <footer class="blockquote-footer mt-3">{review.name}</footer>
+                <footer className="blockquote-footer mt-3">
+                  {review.name}
+                </footer>
 
-                <p class="client-review-stars">
+                <p className="client-review-stars">
                   <Rating
                     emptySymbol="fa fa-star-o"
                     fullSymbol="fa fa-star"
@@ -31,6 +34,7 @@ const Testimonial = () => {
                     readonly
                   />
                 </p>
+                <hr />
               </blockquote>
             </div>
           ))}

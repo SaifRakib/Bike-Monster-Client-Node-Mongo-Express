@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import useAuth from "../../../Hooks/useAuth";
+import logo from "../../../image/logo.png";
 
 const Header = () => {
   const { user, logOut } = useAuth();
@@ -9,7 +10,11 @@ const Header = () => {
       <nav className="navbar navbar-expand-lg navbar-light bg-dark">
         <div className="container">
           <Link className="navbar-brand text-white" to="/">
-            Monster Bike
+            <img
+              style={{ height: "50px", width: "150px", borderRadius: "5px" }}
+              src={logo}
+              alt=""
+            />
           </Link>
           <button
             className="navbar-toggler"

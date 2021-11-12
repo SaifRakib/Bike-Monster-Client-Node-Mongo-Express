@@ -31,10 +31,9 @@ const MyOrders = () => {
     }
   };
   return (
-    <div>
-      <h2>My orders</h2>
+    <div className="py-5">
       <div>
-        <h1>All Orders : {orders.length}</h1>
+        <h1>My Orders : {orders.length}</h1>
         <table className="table">
           <thead>
             <tr>

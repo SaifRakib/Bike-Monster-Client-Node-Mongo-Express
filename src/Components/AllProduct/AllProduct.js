@@ -7,15 +7,11 @@ const AllProduct = (props) => {
     <div>
       <div className="service">
         <div className="card">
-          <img
-            className="card-img-top img-fluid w-100"
-            src={img}
-            alt="Card cap"
-          />
+          <img className="card-img-top img-fluid" src={img} alt="Card cap" />
           <div className="card-body">
             <h5 className="card-title text-info mb-3">{name}</h5>
             <div className="services-desc mb-3">
-              {description.slice(0, 100)}
+              {description.split("").slice(0, 100).toString().replace(/,/g, "")}
             </div>
             <div className="service-info text-center">
               <p>Price {price} BDT</p>
@@ -25,7 +21,7 @@ const AllProduct = (props) => {
           </div>
           <div className="text-center mb-4 mt-3">
             <Link to={`/purchase/${_id}`}>
-              <button className="btn btn-warning text-white">Book Now</button>
+              <button className="btn btn-info text-white">Book Now</button>
             </Link>
           </div>
         </div>

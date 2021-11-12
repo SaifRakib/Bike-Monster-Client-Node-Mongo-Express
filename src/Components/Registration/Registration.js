@@ -23,78 +23,84 @@ const Registration = () => {
     e.preventDefault();
   };
   return (
-    <div className="container">
-      <h2>Registration</h2>
+    <div className="container py-5">
+      <h2 className="text-center pb-5">Registration</h2>
 
-      {!isLoading && (
-        <form onSubmit={handleRegisterSubmit}>
-          <div className="form-group">
-            <label for="name">Name</label>
-            <input
-              type="text"
-              onBlur={handleOnBlur}
-              className="form-control"
-              id="name"
-              name="name"
-              placeholder="Enter Your Name"
-            />
+      <div className="row">
+        <div className="col-md-8 col-12 offset-md-2">
+          <div className="register-form">
+            {!isLoading && (
+              <form onSubmit={handleRegisterSubmit}>
+                <div className="form-group">
+                  <label htmlFor="name">Name</label>
+                  <input
+                    type="text"
+                    onBlur={handleOnBlur}
+                    className="form-control"
+                    id="name"
+                    name="name"
+                    placeholder="Enter Your Name"
+                  />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="email">Email</label>
+                  <input
+                    type="email"
+                    onBlur={handleOnBlur}
+                    className="form-control"
+                    id="email"
+                    name="email"
+                    placeholder="Enter Your Email"
+                  />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="password">Password</label>
+                  <input
+                    type="password"
+                    onBlur={handleOnBlur}
+                    className="form-control"
+                    id="password"
+                    name="password"
+                    placeholder="Enter Your Password"
+                  />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="password2">Re-Enter Password</label>
+                  <input
+                    type="password"
+                    onBlur={handleOnBlur}
+                    className="form-control"
+                    id="password2"
+                    name="password2"
+                    placeholder="Re-Enter Your Password"
+                  />
+                </div>
+                <div className="submit text-center my-4">
+                  <button type="submit" className="btn btn-primary">
+                    Register
+                  </button>
+                </div>
+                {isLoading && (
+                  <div class="spinner-border" role="status">
+                    <span class="sr-only">Loading...</span>
+                  </div>
+                )}
+                {user?.email && (
+                  <div class="alert alert-success" role="alert">
+                    Login Succesfully!
+                  </div>
+                )}
+                {authError && (
+                  <div class="alert alert-danger" role="alert">
+                    {authError}
+                  </div>
+                )}
+              </form>
+            )}
           </div>
-          <div className="form-group">
-            <label for="email">Email</label>
-            <input
-              type="email"
-              onBlur={handleOnBlur}
-              className="form-control"
-              id="email"
-              name="email"
-              placeholder="Enter Your Email"
-            />
-          </div>
-          <div className="form-group">
-            <label for="password">Password</label>
-            <input
-              type="password"
-              onBlur={handleOnBlur}
-              className="form-control"
-              id="password"
-              name="password"
-              placeholder="Enter Your Password"
-            />
-          </div>
-          <div className="form-group">
-            <label for="password2">Password</label>
-            <input
-              type="password"
-              onBlur={handleOnBlur}
-              className="form-control"
-              id="password2"
-              name="password2"
-              placeholder="Re-Enter Your Password"
-            />
-          </div>
-          <div className="submit">
-            <button type="submit" className="btn btn-primary">
-              Register
-            </button>
-          </div>
-          {isLoading && (
-            <div class="spinner-border" role="status">
-              <span class="sr-only">Loading...</span>
-            </div>
-          )}
-          {user?.email && (
-            <div class="alert alert-success" role="alert">
-              Login Succesfully!
-            </div>
-          )}
-          {authError && (
-            <div class="alert alert-danger" role="alert">
-              {authError}
-            </div>
-          )}
-        </form>
-      )}
-      <p>
+        </div>
+      </div>
+      <p className="text-center">
         Already have account? <Link to="/login">Sign In</Link>
       </p>
     </div>

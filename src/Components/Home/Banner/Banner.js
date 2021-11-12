@@ -1,5 +1,4 @@
 import React from "react";
-import banner1 from "./../../../image/banner1.jpg";
 
 const Banner = () => {
   return (
@@ -33,29 +32,47 @@ const Banner = () => {
         </div>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src={banner1} class="d-block w-100" alt="...." />
+            <img
+              src="https://i.ibb.co/JHjvhbg/banner-image-163046871461029.jpg"
+              class="d-block w-100"
+              alt="...."
+            />
             <div class="carousel-caption d-none d-md-block">
-              <h5>First slide label</h5>
+              <h5 className="text-uppercase">Born Of Greatness</h5>
               <p>
-                Some representative placeholder content for the first slide.
+                The premium Suzuki Gixxer SF is a fully faired 155cc motorcycle
+                which has been developed in the same wind-tunnel where the
+                legendary Hayabusa.
               </p>
             </div>
           </div>
           <div class="carousel-item">
-            <img src={banner1} class="d-block w-100" alt="...." />
+            <img
+              src="https://i.ibb.co/X2bx1xf/banner-image-162142421336744.jpg"
+              class="d-block w-100"
+              alt="...."
+            />
             <div class="carousel-caption d-none d-md-block">
-              <h5>Second slide label</h5>
+              <h5 className="text-uppercase">MODERN CRUISER Intruder</h5>
               <p>
-                Some representative placeholder content for the second slide.
+                THE MODERN CRUISER Unique exposure to Suzuki's international
+                Intruder heritage. THE INTRUDER is sporty, also brings in a feel
+                of Luxury with its flowing.
               </p>
             </div>
           </div>
           <div class="carousel-item">
-            <img src={banner1} class="d-block w-100" alt="...." />
+            <img
+              src="https://i.ibb.co/XxgbJ87/banner-image-162142471785377.jpg"
+              class="d-block w-100"
+              alt="...."
+            />
             <div class="carousel-caption d-none d-md-block">
-              <h5>Third slide label</h5>
+              <h5 className="text-uppercase">Bandit the street king</h5>
               <p>
-                Some representative placeholder content for the third slide.
+                Bandit is designed to provide a comfortable ride. Suzuki applies
+                the characteristics of the GSX series which has superior engine
+                performance.
               </p>
             </div>
           </div>

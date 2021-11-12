@@ -10,9 +10,9 @@ const Products = () => {
       .then((data) => setProducts(data));
   }, []);
   return (
-    <div>
+    <div className="bg-secondary py-5">
       <div className="container">
-        <h2 className="text-center my-5">Our Popular Bike</h2>
+        <h2 className="text-center pb-5 text-light">Our Popular Bike</h2>
         {products.length === 0 ? (
           <div className="text-center">
             <div className="spinner-border text-dark my-5" role="status">
@@ -20,7 +20,7 @@ const Products = () => {
             </div>
           </div>
         ) : (
-          <div className="card-deck my-5">
+          <div className="card-deck">
             {products
               .map((product) => (
                 <Product key={product._id} product={product}></Product>

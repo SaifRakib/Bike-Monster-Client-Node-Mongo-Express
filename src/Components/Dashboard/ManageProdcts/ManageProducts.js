@@ -32,7 +32,7 @@ const ManageProducts = () => {
   };
 
   return (
-    <div>
+    <div className="py-5">
       <h2>Manage Products</h2>
       <div>
         <h1>All Products : {products.length}</h1>

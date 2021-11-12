@@ -20,7 +20,6 @@ const Review = () => {
   };
   return (
     <div>
-      <h2>Review</h2>
       <div className="container my-5">
         <h2 className="text-center my-5">Review</h2>
         <form onSubmit={handleSubmit(onSubmit)}>

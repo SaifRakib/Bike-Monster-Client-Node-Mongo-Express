@@ -32,7 +32,7 @@ const Footer = () => {
                   <i className="far fa-envelope-open"></i>
                   <div className="cta-text">
                     <h4>Mail us</h4>
-                    <span>travelx@info.com</span>
+                    <span>monsterbike@info.com</span>
                   </div>
                 </div>
               </div>
@@ -43,13 +43,12 @@ const Footer = () => {
               <div className="col-xl-4 col-lg-4 mb-50">
                 <div className="footer-widget">
                   <div className="footer-logo">
-                    <h3>TravelX</h3>
+                    <h3>Monster Bike</h3>
                   </div>
                   <div className="footer-text">
                     <p>
-                      TravelX is a travel agency. We can manage all the tour of
-                      all countrys. Flight ticket, hotel booking, vichales
-                      manage all our duty.{" "}
+                      Monster Bike website is a top rated website. We sell all
+                      kind of bike .All brands bike are available here.{" "}
                     </p>
                   </div>
                   <div className="footer-social-icon">

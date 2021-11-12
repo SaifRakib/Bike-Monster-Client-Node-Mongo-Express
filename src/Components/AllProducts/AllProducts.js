@@ -15,7 +15,7 @@ const AllProducts = () => {
         {products.length === 0 ? (
           <div className="text-center">
             <div className="spinner-border text-dark my-5" role="status">
-              <p className="sr-only my-5">Loading...</p>
+              <p className="sr-only my-5"></p>
             </div>
           </div>
         ) : (

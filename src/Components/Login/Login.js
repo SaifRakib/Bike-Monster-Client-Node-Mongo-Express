@@ -26,58 +26,70 @@ const Login = () => {
     signInUsingGoogle(location, history);
   };
   return (
-    <div className="container">
-      <h2>Login</h2>
+    <div className="container py-5">
+      <h2 className="text-center pb-5">Login</h2>
 
-      <form onSubmit={handleLoginSubmit}>
-        <div className="form-group">
-          <label for="email">Email</label>
-          <input
-            type="email"
-            onChange={handleOnChange}
-            className="form-control"
-            id="email"
-            name="email"
-            placeholder="Enter Your Email"
-          />
-        </div>
-        <div className="form-group">
-          <label for="password">Password</label>
-          <input
-            type="password"
-            onChange={handleOnChange}
-            className="form-control"
-            id="password"
-            name="password"
-            placeholder="Enter Your Password"
-          />
-        </div>
-        <div className="submit">
-          <button type="submit" className="btn btn-primary">
-            Sign in
-          </button>
-        </div>
-        {isLoading && (
-          <div class="spinner-border" role="status">
-            <span class="sr-only">Loading...</span>
+      <div className="row">
+        <div className="col-md-8 col-sm-8 col-8 offset-2">
+          <div className="login-form">
+            <form onSubmit={handleLoginSubmit}>
+              <div className="form-group mb-3">
+                <input
+                  type="email"
+                  onChange={handleOnChange}
+                  className="form-control"
+                  id="email"
+                  name="email"
+                  placeholder="Enter Your Email"
+                />
+              </div>
+              <div className="form-group mb-3">
+                <input
+                  type="password"
+                  onChange={handleOnChange}
+                  className="form-control"
+                  id="password"
+                  name="password"
+                  placeholder="Enter Your Password"
+                />
+              </div>
+              <div className="submit text-center">
+                <button type="submit" className="btn btn-primary">
+                  Sign in
+                </button>
+              </div>
+              {isLoading && (
+                <div className="spinner-border" role="status">
+                  <span className="sr-only"></span>
+                </div>
+              )}
+              {user?.email && (
+                <div className="alert alert-success" role="alert">
+                  Login Succesfully!
+                </div>
+              )}
+              {authError && (
+                <div className="alert alert-danger" role="alert">
+                  {authError}
+                </div>
+              )}
+
+              <p>
+                Are you new here? Please <Link to="/register">Sign Up</Link>{" "}
+              </p>
+              <hr />
+              <div className="googleSign text-center">
+                <button
+                  className="btn btn-secondary text-white"
+                  onClick={handleGoogleSignIn}
+                >
+                  Sign in With Google
+                </button>
+              </div>
+            </form>
           </div>
-        )}
-        {user?.email && (
-          <div class="alert alert-success" role="alert">
-            Login Succesfully!
-          </div>
-        )}
-        {authError && (
-          <div class="alert alert-danger" role="alert">
-            {authError}
-          </div>
-        )}
-      </form>
-      <p>
-        Are you new here? Please <Link to="/register">Sign Up</Link>
-        <hr />
-        <button onClick={handleGoogleSignIn}>Sign in With Google</button>
-      </p>
+        </div>
+      </div>
     </div>
   );
 };

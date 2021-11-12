@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 
 const ManageAllOrders = () => {
   const [orders, setOrders] = useState([]);
   const [control, setControl] = useState(false);
-  const [isApproved, setIsApproved] = useState(false);
   console.log(orders);
 
   useEffect(() => {
@@ -34,23 +32,18 @@ const ManageAllOrders = () => {
 
   //   handle status update click
   const handleStatus = (id) => {
-    if (!isApproved) {
-      fetch(`http://localhost:8080/updateOrder/${id}`, {
-        method: "PUT",
-      })
-        .then((res) => res.json())
-        .then((result) => {
-          if (result.modifiedCount) {
-            setControl(!control);
-            setIsApproved(true);
-          } else {
-            setControl(false);
-          }
-          console.log(result);
-        });
-    } else {
-      alert("Already approved");
-    }
+    fetch(`http://localhost:8080/updateOrder/${id}`, {
+      method: "PUT",
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        if (result.acknowledged) {
+          setControl(!control);
+        } else {
+          setControl(false);
+        }
+        console.log(result);
+      });
   };
 
   return (
@@ -85,22 +78,16 @@ const ManageAllOrders = () => {
                 <td>
                   <button
                     onClick={() => handleDeleteOrder(order._id)}
-                    className="btn text-white bg-danger mx-2 p-2"
+                    className="btn text-white bg-danger mb-2 p-2"
                   >
-                    <i className="fas fa-trash-alt"></i>
+                    <i className="fas fa-trash-alt"></i>Delete
                   </button>
                   <button
                     onClick={() => handleStatus(order._id)}
-                    className="btn text-white bg-danger mx-2 p-2"
+                    className="btn text-white bg-warning mx-2 p-2"
                   >
                     Shipping
                   </button>
-                  {/* 
-                  <Link to={`/orders/updateOrder/${order._id}`}>
-                    <button className="btn text-white bg-warning p-2">
-                      Update
-                    </button>
-                  </Link> */}
                 </td>
               </tr>
             </tbody>

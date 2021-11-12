@@ -2,4 +2,19 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 20px;
+  justify-items: center;
+  align-items: center;
+}
+/* Small devices  */
+@media (max-width: 668px) {
+  .brand {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Midium device */
+@media (min-width: 669px) and (max-width: 992px) {
+  .brand {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }

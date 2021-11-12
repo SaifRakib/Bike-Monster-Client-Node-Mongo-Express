@@ -4,9 +4,9 @@ import "./Brand.css";
 const Brand = () => {
   return (
     <div>
-      <h2 className="text-center">Popular Brand</h2>
       <div className="container">
-        <div className="brand">
+        <h2 className="text-center py-5">Popular Brand</h2>
+        <div className="brand pt-3 pb-5">
           <img
             src="https://i.ibb.co/j3czNTc/bajaj.webp"
             className="img-fluid"
