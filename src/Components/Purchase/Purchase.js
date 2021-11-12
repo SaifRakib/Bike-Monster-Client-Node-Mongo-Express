@@ -16,7 +16,7 @@ const Purchase = () => {
   } = useForm();
 
   useEffect(() => {
-    fetch(`http://localhost:8080/allProduct/${productId}`)
+    fetch(`https://warm-basin-61820.herokuapp.com/allProduct/${productId}`)
       .then((res) => res.json())
       .then((data) => setProduct(data));
   }, []);
@@ -33,17 +33,19 @@ const Purchase = () => {
     const status = "Pending";
     data.status = status;
 
-    axios.post("http://localhost:8080/order", data).then((res) => {
-      if (res.data.insertedId) {
-        alert("Your Order Process.Thank You.");
-        reset();
-      }
-    });
+    axios
+      .post("https://warm-basin-61820.herokuapp.com/order", data)
+      .then((res) => {
+        if (res.data.insertedId) {
+          alert("Your Order Process.Thank You.");
+          reset();
+        }
+      });
     console.log(data);
   };
   return (
     <div>
-      <div className="purchase">
+      <div className="purchase my-4">
         <div className="container">
           <div className="row">
             <div className="col-md-7">
@@ -51,11 +53,13 @@ const Purchase = () => {
                 <div className="purchase-img">
                   <img src={product?.img} className="img-fluid w-100" alt="" />
                 </div>
-                <div className="purchase-item-info">
-                  <p>{product?.name}</p>
-                  <p>{product?.price}</p>
-                  <p>{product?.color}</p>
-                  <p>{product?.description}</p>
+                <div className="purchase-item-info my-4">
+                  <h2>{product?.name}</h2>
+                  <h4>Price: {product?.price}</h4>
+                  <h5>Color: {product?.color}</h5>
+                  <h5>Weight: {product?.weight} Kg</h5>
+                  <h5>Engine Capacity: {product?.engine} CC</h5>
+                  <p className="mt-4">{product?.description}</p>
                 </div>
               </div>
             </div>

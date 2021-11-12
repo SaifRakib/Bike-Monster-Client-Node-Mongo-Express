@@ -5,7 +5,7 @@ const ManageProducts = () => {
   const [control, setControl] = useState(false);
 
   useEffect(() => {
-    fetch("http://localhost:8080/allProduct")
+    fetch("https://warm-basin-61820.herokuapp.com/allProduct")
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, [control]);
@@ -16,7 +16,7 @@ const ManageProducts = () => {
       "Are you sure!! Your want to delete product?"
     );
     if (confirmation === true) {
-      fetch(`http://localhost:8080/deleteProduct/${id}`, {
+      fetch(`https://warm-basin-61820.herokuapp.com/deleteProduct/${id}`, {
         method: "DELETE",
         headers: { "content-type": "application/json" },
       })

@@ -109,7 +109,7 @@ const useFirebase = () => {
 
   // check admin
   useEffect(() => {
-    fetch(`http://localhost:8080/users/${user.email}`)
+    fetch(`https://warm-basin-61820.herokuapp.com/users/${user.email}`)
       .then((res) => res.json())
       .then((data) => setAdmin(data.admin));
   }, [user.email]);
@@ -117,7 +117,7 @@ const useFirebase = () => {
   // Save user to database
   const saveUser = (email, displayName, method) => {
     const user = { email, displayName };
-    fetch("http://localhost:8080/users", {
+    fetch("https://warm-basin-61820.herokuapp.com/users", {
       method: method,
       headers: {
         "content-type": "application/json",

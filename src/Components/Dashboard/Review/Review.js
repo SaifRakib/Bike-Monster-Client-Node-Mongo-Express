@@ -11,12 +11,14 @@ const Review = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    axios.post("http://localhost:8080/addReview", data).then((res) => {
-      if (res.data.insertedId) {
-        alert("added successfully");
-        reset();
-      }
-    });
+    axios
+      .post("https://warm-basin-61820.herokuapp.com/addReview", data)
+      .then((res) => {
+        if (res.data.insertedId) {
+          alert("added successfully");
+          reset();
+        }
+      });
   };
   return (
     <div>

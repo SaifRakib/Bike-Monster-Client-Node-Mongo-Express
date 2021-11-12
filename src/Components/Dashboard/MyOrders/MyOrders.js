@@ -7,7 +7,7 @@ const MyOrders = () => {
   const { user } = useAuth();
 
   useEffect(() => {
-    fetch(`http://localhost:8080/myOrders?email=${user.email}`)
+    fetch(`https://warm-basin-61820.herokuapp.com/myOrders?email=${user.email}`)
       .then((res) => res.json())
       .then((data) => setOrders(data));
   }, [control]);
@@ -16,7 +16,7 @@ const MyOrders = () => {
   const handleDeleteOrder = (id) => {
     let confirmation = window.confirm("Are you sure!! Your want to delete it?");
     if (confirmation === true) {
-      fetch(`http://localhost:8080/deleteOrder/${id}`, {
+      fetch(`https://warm-basin-61820.herokuapp.com/deleteOrder/${id}`, {
         method: "DELETE",
         headers: { "content-type": "application/json" },
       })

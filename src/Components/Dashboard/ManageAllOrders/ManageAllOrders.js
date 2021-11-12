@@ -6,7 +6,7 @@ const ManageAllOrders = () => {
   console.log(orders);
 
   useEffect(() => {
-    fetch("http://localhost:8080/orders")
+    fetch("https://warm-basin-61820.herokuapp.com/orders")
       .then((res) => res.json())
       .then((data) => setOrders(data));
   }, [control]);
@@ -15,7 +15,7 @@ const ManageAllOrders = () => {
   const handleDeleteOrder = (id) => {
     let confirmation = window.confirm("Are you sure!! Your want to delete it?");
     if (confirmation === true) {
-      fetch(`http://localhost:8080/deleteOrder/${id}`, {
+      fetch(`https://warm-basin-61820.herokuapp.com/deleteOrder/${id}`, {
         method: "DELETE",
         headers: { "content-type": "application/json" },
       })
@@ -32,7 +32,7 @@ const ManageAllOrders = () => {
 
   //   handle status update click
   const handleStatus = (id) => {
-    fetch(`http://localhost:8080/updateOrder/${id}`, {
+    fetch(`https://warm-basin-61820.herokuapp.com/updateOrder/${id}`, {
       method: "PUT",
     })
       .then((res) => res.json())

@@ -10,7 +10,7 @@ const MakeAdmin = () => {
 
   const handleAdminSubmit = (e) => {
     const user = { email };
-    fetch("http://localhost:8080/users/admin", {
+    fetch("https://warm-basin-61820.herokuapp.com/users/admin", {
       method: "PUT",
       headers: {
         "content-type": "application/json",
