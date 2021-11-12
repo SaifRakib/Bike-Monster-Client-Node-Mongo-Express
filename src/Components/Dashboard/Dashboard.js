@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 import AddProduct from "./AddProduct/AddProduct";
 import "./Dashboard.css";
@@ -11,7 +12,7 @@ import Review from "./Review/Review";
 
 const Dashboard = () => {
   const [control, setControl] = useState("allVolunteers");
-  const { admin } = useAuth();
+  const { admin, logOut } = useAuth();
   return (
     <div>
       <div className="admin-container">
@@ -69,6 +70,9 @@ const Dashboard = () => {
                         </li>
                       </div>
                     )}
+                    <li onClick={logOut} className="admin-menu p-2">
+                      Logout
+                    </li>
                   </div>
                 </div>
               </div>

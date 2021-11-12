@@ -32,31 +32,26 @@ const ManageAllOrders = () => {
     }
   };
 
-  const handleStatus = () => {
-    console.log("pending");
-  };
-
   //   handle status update click
-  //   const handleStatus = (id) => {
-  //     if (!isApproved) {
-  //       fetch(`http://localhost:8080/updateOrder/${id}`, {
-  //         method: "PUT",
-  //       })
-  //         .then((res) => res.json())
-  //         .then((result) => {
-  //           if (result) {
-  //             const updateStatus = { status: "approve" };
-  //             const updateOrder = orders.filter((item) =>
-  //               setOrders(updateStatus)
-  //             );
-  //             setIsApproved(true);
-  //           }
-  //           console.log(result);
-  //         });
-  //     } else {
-  //       alert("Already approved");
-  //     }
-  //   };
+  const handleStatus = (id) => {
+    if (!isApproved) {
+      fetch(`http://localhost:8080/updateOrder/${id}`, {
+        method: "PUT",
+      })
+        .then((res) => res.json())
+        .then((result) => {
+          if (result.modifiedCount) {
+            setControl(!control);
+            setIsApproved(true);
+          } else {
+            setControl(false);
+          }
+          console.log(result);
+        });
+    } else {
+      alert("Already approved");
+    }
+  };
 
   return (
     <div>
@@ -100,8 +95,8 @@ const ManageAllOrders = () => {
                   >
                     Shipping
                   </button>
-
-                  {/* <Link to={`/orders/updateOrder/${order._id}`}>
+                  {/* 
+                  <Link to={`/orders/updateOrder/${order._id}`}>
                     <button className="btn text-white bg-warning p-2">
                       Update
                     </button>

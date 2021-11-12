@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Rating from "react-rating";
 
 const Testimonial = () => {
   const [reviews, setReviews] = useState([]);
@@ -23,11 +24,12 @@ const Testimonial = () => {
                 <footer class="blockquote-footer mt-3">{review.name}</footer>
 
                 <p class="client-review-stars">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star-half-alt"></i>
-                  <i class="far fa-star"></i>
+                  <Rating
+                    emptySymbol="fa fa-star-o"
+                    fullSymbol="fa fa-star"
+                    initialRating={review.rating}
+                    readonly
+                  />
                 </p>
               </blockquote>
             </div>
